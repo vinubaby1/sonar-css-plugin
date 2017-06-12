@@ -36,18 +36,23 @@ public class LessMixinParameterTreeTest extends LessTreeTest {
     LessMixinParameterTree tree;
 
     tree = checkParsed("@var");
-    assertThat(tree.defaultValue()).isNull();
-    assertThat(tree.value()).isNull();
-    assertThat(tree.variable()).isNotNull();
+    assertThat(tree.variableDeclaration()).isNull();
+    assertThat(tree.value()).isNotNull();
+
+    tree = checkParsed("@var...");
+    assertThat(tree.variableDeclaration()).isNull();
+    assertThat(tree.value()).isNotNull();
+
+    tree = checkParsed("...");
+    assertThat(tree.variableDeclaration()).isNull();
+    assertThat(tree.value()).isNotNull();
 
     tree = checkParsed("@var: abc");
-    assertThat(tree.variable()).isNotNull();
-    assertThat(tree.defaultValue()).isNotNull();
+    assertThat(tree.variableDeclaration()).isNotNull();
     assertThat(tree.value()).isNull();
 
-    tree = checkParsed("abc");
-    assertThat(tree.variable()).isNull();
-    assertThat(tree.defaultValue()).isNull();
+    tree = checkParsed("@i + 1");
+    assertThat(tree.variableDeclaration()).isNull();
     assertThat(tree.value()).isNotNull();
   }
 

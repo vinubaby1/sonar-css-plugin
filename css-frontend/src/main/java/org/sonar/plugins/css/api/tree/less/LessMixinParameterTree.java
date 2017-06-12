@@ -27,12 +27,9 @@ import javax.annotation.Nullable;
 public interface LessMixinParameterTree extends Tree {
 
   @Nullable
-  LessVariableTree variable();
-
-  @Nullable
   ValueTree value();
 
   @Nullable
-  LessMixinParameterDefaultValueTree defaultValue();
+  LessVariableDeclarationTree variableDeclaration();
 
 }

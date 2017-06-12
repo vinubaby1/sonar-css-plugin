@@ -5,6 +5,10 @@
 'project:custom/common/formatting/declaration.less':[
 70,
 ],
+'project:custom/common/formatting/delimiterSeparatedList.less':[
+57,
+57,
+],
 'project:custom/less/multipleVariableDeclarationsSameScope.less':[
 1,
 5,
